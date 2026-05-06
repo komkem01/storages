@@ -2,7 +2,6 @@
 .vscode/
 vendor/
 .env
-storage/
 dist/
 tmp/
 compose.yml
