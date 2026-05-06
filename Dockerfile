@@ -12,3 +12,5 @@ WORKDIR /app
 COPY --from=builder /app/dist/ /app/
 ARG SPECS_VERSION=latest
 ENV SPECS_VERSION=${SPECS_VERSION}
+EXPOSE 8080
+CMD ["/app/storage"]
