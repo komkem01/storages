@@ -5,6 +5,7 @@ import (
 	exampletwo "storage/app/modules/example-two"
 	"storage/app/modules/sentry"
 	"storage/app/modules/specs"
+	"storage/app/modules/storage"
 	"storage/internal/kafka"
 	"storage/internal/log"
 	"storage/internal/otel/collector"
@@ -36,6 +37,7 @@ type Config struct {
 	Example example.Config
 
 	ExampleTwo exampletwo.Config
+	S3         storage.Config
 }
 
 var App = Config{
@@ -62,5 +64,13 @@ var App = Config{
 		TraceMode:         "noop",
 		MetricMode:        "noop",
 		TraceRatio:        0.01,
+	},
+	S3: storage.Config{
+		Endpoint:             "localhost:9000",
+		AccessKeyId:          "minioadmin",
+		SecretAccessKey:      "minioadmin",
+		BucketName:           "storages",
+		UseSSL:               false,
+		PresignExpireSeconds: 900,
 	},
 }

@@ -18,3 +18,9 @@ func api(r *gin.RouterGroup, mod *modules.Modules) {
 	r.GET("/example-http", mod.Example.Ctl.GetHttpReq)
 	r.POST("/example", mod.Example.Ctl.Create)
 }
+
+func apiStorage(r *gin.RouterGroup, mod *modules.Modules) {
+	storages := r.Group("/storages")
+	storages.POST("/upload", mod.Storage.Ctl.Upload)
+	storages.GET("/:id/presign", mod.Storage.Ctl.Presign)
+}

@@ -8,6 +8,7 @@ import (
 	"storage/app/modules/example"
 	"storage/app/modules/sentry"
 	"storage/app/modules/specs"
+	storagemodule "storage/app/modules/storage"
 	"storage/internal/config"
 	"storage/internal/database"
 	"storage/internal/log"
@@ -30,6 +31,7 @@ type Modules struct {
 	// Kafka *kafka.Module
 	Example  *example.Module
 	Example2 *exampletwo.Module
+	Storage  *storagemodule.Module
 }
 
 func modulesInit() {
@@ -47,6 +49,7 @@ func modulesInit() {
 	entitiesMod := entities.New(db.Svc.DB())
 	exampleMod := example.New(config.Conf[example.Config](confMod.Svc), entitiesMod.Svc)
 	exampleMod2 := exampletwo.New(config.Conf[exampletwo.Config](confMod.Svc), entitiesMod.Svc)
+	storageMod := storagemodule.New(config.Conf[storagemodule.Config](confMod.Svc), entitiesMod.Svc)
 	// kafka := kafka.New(&conf.Kafka)
 	mod = &Modules{
 		Conf:     confMod,
@@ -58,6 +61,7 @@ func modulesInit() {
 		ENT:      entitiesMod,
 		Example:  exampleMod,
 		Example2: exampleMod2,
+		Storage:  storageMod,
 	}
 
 	log.Infof("all modules initialized")

@@ -19,3 +19,8 @@ type ExampleEntity interface {
 type ExampleTwoEntity interface {
 	CreateExampleTwo(ctx context.Context, userID uuid.UUID) (*ent.Example, error)
 }
+
+type StorageEntity interface {
+	CreateStorage(ctx context.Context, storage *ent.Storage) (*ent.Storage, error)
+	GetStorageByID(ctx context.Context, id uuid.UUID) (*ent.Storage, error)
+}
