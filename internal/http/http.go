@@ -9,10 +9,10 @@ import (
 	"os"
 	"time"
 
-	"mcop/app/modules"
-	"mcop/internal/log"
-	"mcop/internal/provider"
-	"mcop/routes"
+	"storage/app/modules"
+	"storage/internal/log"
+	"storage/internal/provider"
+	"storage/routes"
 
 	"github.com/gin-contrib/pprof"
 	"github.com/gin-gonic/gin"

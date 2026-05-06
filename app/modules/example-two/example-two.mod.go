@@ -1,8 +1,8 @@
 package exampletwo
 
 import (
-	entitiesinf "mcop/app/modules/entities/inf"
-	"mcop/internal/config"
+	entitiesinf "storage/app/modules/entities/inf"
+	"storage/internal/config"
 )
 
 type (

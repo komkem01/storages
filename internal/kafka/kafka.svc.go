@@ -11,11 +11,11 @@ import (
 	"strings"
 	"time"
 
-	"mcop/app/utils/syncx"
-	"mcop/internal/config"
-	kafkainf "mcop/internal/kafka/inf"
-	"mcop/internal/log"
-	"mcop/internal/provider"
+	"storage/app/utils/syncx"
+	"storage/internal/config"
+	kafkainf "storage/internal/kafka/inf"
+	"storage/internal/log"
+	"storage/internal/provider"
 
 	"github.com/IBM/sarama"
 )
