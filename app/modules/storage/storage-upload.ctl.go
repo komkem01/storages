@@ -13,11 +13,6 @@ import (
 
 type UploadResponse struct {
 	ID           string `json:"id"`
-	Provider     string `json:"provider"`
-	Path         string `json:"path"`
-	URL          string `json:"url"`
-	FileSize     int64  `json:"file_size"`
-	MimeType     string `json:"mime_type"`
 	ShortCode    string `json:"short_code"`
 	PresignedURL string `json:"presigned_url"`
 	ExpiresIn    int64  `json:"expires_in"`
@@ -65,11 +60,6 @@ func (c *Controller) Upload(ctx *gin.Context) {
 
 	base.Success(ctx, UploadResponse{
 		ID:           storage.ID.String(),
-		Provider:     storage.Provider,
-		Path:         storage.Path,
-		URL:          storage.URL,
-		FileSize:     storage.FileSize,
-		MimeType:     storage.MimeType,
 		ShortCode:    storage.ShortCode,
 		PresignedURL: presignedURL,
 		ExpiresIn:    expiresIn,

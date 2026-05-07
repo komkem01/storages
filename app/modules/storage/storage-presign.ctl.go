@@ -19,9 +19,6 @@ type PresignRequest struct {
 
 type PresignResponse struct {
 	ID           string `json:"id"`
-	Provider     string `json:"provider"`
-	Path         string `json:"path"`
-	URL          string `json:"url"`
 	ShortCode    string `json:"short_code"`
 	PresignedURL string `json:"presigned_url"`
 	ExpiresIn    int64  `json:"expires_in"`
@@ -65,9 +62,6 @@ func (c *Controller) Presign(ctx *gin.Context) {
 
 	base.Success(ctx, PresignResponse{
 		ID:           storage.ID.String(),
-		Provider:     storage.Provider,
-		Path:         storage.Path,
-		URL:          storage.URL,
 		ShortCode:    storage.ShortCode,
 		PresignedURL: url,
 		ExpiresIn:    expireSeconds,
